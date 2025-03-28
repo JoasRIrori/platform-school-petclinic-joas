@@ -28,9 +28,12 @@ spec:
       labels:
         app: petclinic
     spec:
+      imagePullSecrets:
+        - name: ghcr-login-secret
       containers:
         - name: workload
-          image: dsyer/petclinic
+          image: ghcr.io/joasrirori/platform-school-petclinic-joas:latest
+          imagePullPolicy: Always
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
